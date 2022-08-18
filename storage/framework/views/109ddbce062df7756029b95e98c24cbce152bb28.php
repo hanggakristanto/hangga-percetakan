@@ -616,7 +616,7 @@ Cart &mdash; <?php echo e($setting->site_title); ?>
                 $('.btn-checkout').removeAttr('disabled', 'disabled');
                 $('.btn-checkout').html('CHECKOUT');
 
-            } else if (address.length == "") {
+            }  else if (address.length == "") {
 
                 toastr.error('Silahkan Masukkan Alamat Lengkap !');
 

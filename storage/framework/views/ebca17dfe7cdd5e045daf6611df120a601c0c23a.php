@@ -52,7 +52,7 @@ Payment &mdash; <?php echo e($setting->site_title); ?>
                         <div class="card-body">
                             <img src="<?php echo e(asset('images/payment-bca.png')); ?>" style="width: 150px">
                             <hr>
-                            <h6>FIKA RIDAUL MAULAYYA</h6>
+                            <h6>Sofiduta</h6>
                             <p></p>
                             <h6 class="font-weight-bold">1131458971</h6>
                         </div>
@@ -64,7 +64,7 @@ Payment &mdash; <?php echo e($setting->site_title); ?>
                         <div class="card-body">
                             <img src="<?php echo e(asset('images/payment-mandiri-syariah.png')); ?>" style="width: 150px">
                             <hr>
-                            <h6>FIKA RIDAUL MAULAYYA</h6>
+                            <h6>Sofiduta</h6>
                             <p></p>
                             <h6 class="font-weight-bold">7130309725</h6>
                         </div>
@@ -76,7 +76,7 @@ Payment &mdash; <?php echo e($setting->site_title); ?>
                         <div class="card-body">
                             <img src="<?php echo e(asset('images/payment-jenius.png')); ?>" style="width: 150px">
                             <hr>
-                            <h6>FIKA RIDAUL MAULAYYA</h6>
+                            <h6>Sofiduta</h6>
                             <p></p>
                             <h6 class="font-weight-bold">90011961874</h6>
                         </div>
@@ -206,12 +206,12 @@ unset($__errorArgs, $__bag); ?>
                                     <label class="font-weight-bold">TRANSFER KE BANK</label>
                                     <select class="form-control select-bank-to" wire:model="bank_transfer_to" name="bank_transfer_to" required>
                                         <option value="">-- pilih BANK --</option>
-                                        <option value="BCA - 1131458971 - AN. FIKA RIDAUL MAULAYYA"> BCA - 1131458971 |
-                                            AN. FIKA RIDAUL MAULAYYA</option>
-                                        <option value="MANDIRI SYARI'AH - 7130309725 - AN. FIKA RIDAUL MAULAYYA">
-                                            MANDIRI SYARI'AH - 7130309725 | AN. FIKA RIDAUL MAULAYYA</option>
-                                        <option value="JENIUS / BTPN - 90011961874 - AN. FIKA RIDAUL MAULAYYA"> JENIUS /
-                                            BTPN - 90011961874 | AN. FIKA RIDAUL MAULAYYA</option>
+                                        <option value="BCA - 1131458971 - AN. Sofiduta"> BCA - 1131458971 |
+                                            AN. Sofiduta</option>
+                                        <option value="MANDIRI SYARI'AH - 7130309725 - AN. Sofiduta">
+                                            MANDIRI SYARI'AH - 7130309725 | AN. Sofiduta</option>
+                                        <option value="JENIUS / BTPN - 90011961874 - AN. Sofiduta"> JENIUS /
+                                            BTPN - 90011961874 | AN. Sofiduta</option>
                                     </select>
                                     <?php $__errorArgs = ['bank_transfer_to'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

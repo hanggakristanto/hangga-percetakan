@@ -9,89 +9,89 @@ use Livewire\LivewireManager;
 
 class LivewireRequestContext extends LaravelRequestContext
 {
-    /** @var \Livewire\LivewireManager */
-    protected $livewireManager;
+    
+    // protected $livewireManager;
 
-    public function __construct(
-        Request $request,
-        LivewireManager $livewireManager
-    ) {
-        parent::__construct($request);
+    // public function __construct(
+    //     Request $request,
+    //     LivewireManager $livewireManager
+    // ) {
+    //     parent::__construct($request);
 
-        $this->livewireManager = $livewireManager;
-    }
+    //     $this->livewireManager = $livewireManager;
+    // }
 
-    public function getRequest(): array
-    {
-        $properties = parent::getRequest();
+    // public function getRequest(): array
+    // {
+    //     $properties = parent::getRequest();
 
-        $properties['method'] = $this->livewireManager->originalMethod();
-        $properties['url'] = $this->livewireManager->originalUrl();
+    //     $properties['method'] = $this->livewireManager->originalMethod();
+    //     $properties['url'] = $this->livewireManager->originalUrl();
 
-        return $properties;
+    //     return $properties;
             
-    dd($properties);
-    }
+    // dd($properties);
+    // }
 
 
-    public function toArray(): array
-    {
-        $properties = parent::toArray();
+    // public function toArray(): array
+    // {
+    //     $properties = parent::toArray();
 
-        $properties['livewire'] = $this->getLiveWireInformation();
+    //     $properties['livewire'] = $this->getLiveWireInformation();
 
-        return $properties;
-    }
+    //     return $properties;
+    // }
 
-    protected function getLiveWireInformation(): array
-    {
-        $componentId = $this->request->input('fingerprint.id');
-        $componentAlias = $this->request->input('fingerprint.name');
+    // protected function getLiveWireInformation(): array
+    // {
+    //     $componentId = $this->request->input('fingerprint.id');
+    //     $componentAlias = $this->request->input('fingerprint.name');
 
-        if ($componentAlias === null) {
-            return [];
-        }
+    //     if ($componentAlias === null) {
+    //         return [];
+    //     }
 
-        try {
-            $componentClass = $this->livewireManager->getClass($componentAlias);
-        } catch (Exception $e) {
-            $componentClass = null;
-        }
+    //     try {
+    //         $componentClass = $this->livewireManager->getClass($componentAlias);
+    //     } catch (Exception $e) {
+    //         $componentClass = null;
+    //     }
 
-        return [
-            'component_class' => $componentClass,
-            'component_alias' => $componentAlias,
-            'component_id' => $componentId,
-            'data' => $this->resolveData(),
-            'updates' => $this->resolveUpdates(),
-        ];
-    }
+    //     return [
+    //         'component_class' => $componentClass,
+    //         'component_alias' => $componentAlias,
+    //         'component_id' => $componentId,
+    //         'data' => $this->resolveData(),
+    //         'updates' => $this->resolveUpdates(),
+    //     ];
+    // }
 
-    protected function resolveData(): array
-    {
-        $data = $this->request->input('serverMemo.data') ?? [];
+    // protected function resolveData(): array
+    // {
+    //     $data = $this->request->input('serverMemo.data') ?? [];
 
-        $dataMeta = $this->request->input('serverMemo.dataMeta') ?? [];
+    //     $dataMeta = $this->request->input('serverMemo.dataMeta') ?? [];
 
-        foreach ($dataMeta['modelCollections'] ?? [] as $key => $value) {
-            $data[$key] = array_merge($data[$key] ?? [], $value);
-        }
+    //     foreach ($dataMeta['modelCollections'] ?? [] as $key => $value) {
+    //         $data[$key] = array_merge($data[$key] ?? [], $value);
+    //     }
 
-        foreach ($dataMeta['models'] ?? [] as $key => $value) {
-            $data[$key] = array_merge($data[$key] ?? [], $value);
-        }
+    //     foreach ($dataMeta['models'] ?? [] as $key => $value) {
+    //         $data[$key] = array_merge($data[$key] ?? [], $value);
+    //     }
 
-        return $data;
-    }
+    //     return $data;
+    // }
 
-    protected function resolveUpdates()
-    {
-        $updates = $this->request->input('updates') ?? [];
+    // protected function resolveUpdates()
+    // {
+    //     $updates = $this->request->input('updates') ?? [];
 
-        return array_map(function (array $update) {
-            $update['payload'] = Arr::except($update['payload'] ?? [], ['id']);
+    //     return array_map(function (array $update) {
+    //         $update['payload'] = Arr::except($update['payload'] ?? [], ['id']);
 
-            return $update;
-        }, $updates);
-    }
+    //         return $update;
+    //     }, $updates);
+    // }
 }

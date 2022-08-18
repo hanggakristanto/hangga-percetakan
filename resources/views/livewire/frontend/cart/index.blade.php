@@ -614,16 +614,7 @@ Cart &mdash; {{ $setting->site_title }}
                 $('.btn-checkout').removeAttr('disabled', 'disabled');
                 $('.btn-checkout').html('CHECKOUT');
 
-            } else if (district.length == "") {
-
-                toastr.error('Silahkan Pilih Kecamatan !');
-
-                $('select[name=kecamatan]').focus();
-                //add disable and loding button
-                $('.btn-checkout').removeAttr('disabled', 'disabled');
-                $('.btn-checkout').html('CHECKOUT');
-
-            } else if (address.length == "") {
+            }  else if (address.length == "") {
 
                 toastr.error('Silahkan Masukkan Alamat Lengkap !');
 
